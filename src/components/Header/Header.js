@@ -1,6 +1,12 @@
-import { Link } from "react-router-dom"
+import { Link , useNavigate } from "react-router-dom"
+import { isLoggedIn } from "../auth/Auth"
 
 export const Header = ()=>{
+  const navigate = useNavigate();
+  const signout = ()=>{
+    sessionStorage.clear();
+    navigate("/");
+  }
     return <header className="header_section">
     <div classNameName="header_top">
       <div className="container">
@@ -37,8 +43,38 @@ export const Header = ()=>{
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className=""> </span>
           </button>
-
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          
+          {isLoggedIn() ? <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <div className="d-flex mr-auto flex-column flex-lg-row align-items-center">
+              <ul className="navbar-nav  ">
+                <li className="nav-item active">
+                  <Link className="nav-link" to="">Add Receptionist <span className="sr-only">(current)</span></Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to=""> Reception List</Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="">Appointment list</Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="">Profile</Link>
+                </li>
+              </ul>
+            </div>
+            <div className="quote_btn-container">
+              <Link onClick={signout}>
+                <i className="fa fa-user" aria-hidden="true"></i>
+                <span>
+                  Sign-out
+                </span>
+              </Link>
+              <form className="form-inline">
+                <button className="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                  <i className="fa fa-search" aria-hidden="true"></i>
+                </button>
+              </form>
+            </div>
+          </div>: <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <div className="d-flex mr-auto flex-column flex-lg-row align-items-center">
               <ul className="navbar-nav  ">
                 <li className="nav-item active">
@@ -81,7 +117,8 @@ export const Header = ()=>{
                 </button>
               </form>
             </div>
-          </div>
+          </div>}
+          
         </nav>
       </div>
     </div>

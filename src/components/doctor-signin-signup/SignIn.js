@@ -20,8 +20,9 @@ export const SignIn = ()=>{
             let currentUserData = response.data.data;
             delete currentUserData.password;
             console.log(currentUserData);
+            // stringify is used to convert an object to string 
             sessionStorage.setItem("current-user",JSON.stringify(currentUserData));
-            sessionStorage.setItem("")
+            sessionStorage.setItem("token",response.data.msg);
             navigate("/dashboard");
            }
            else
