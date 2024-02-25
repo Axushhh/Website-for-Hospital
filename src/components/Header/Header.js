@@ -62,12 +62,10 @@ export const Header = ()=>{
               </ul>
             </div>
             <div className="quote_btn-container">
-              <Link onClick={signout}>
                 <i className="fa fa-user" aria-hidden="true"></i>
-                <span>
+                <span onClick={signout}>
                   Sign-out
                 </span>
-              </Link>
               <form className="form-inline">
                 <button className="btn  my-2 my-sm-0 nav_search-btn" type="submit">
                   <i className="fa fa-search" aria-hidden="true"></i>

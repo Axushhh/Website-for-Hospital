@@ -7,6 +7,8 @@ import { Contact } from "./components/contact/Contact";
 import { SignIn } from "./components/doctor-signin-signup/SignIn";
 import { SignUp } from "./components/doctor-signin-signup/SignUp";
 import { DashBoard } from "./components/dashboard/DashBoard";
+import { ProtectedRoute } from "./components/auth/ProtectedRoute";
+import { isLoggedIn } from "./components/auth/Auth";
 
 function App() {
   return (<div>
@@ -19,7 +21,7 @@ function App() {
     <Route path="/contact" element={<Contact/>}/>
     <Route path="/signin" element={<SignIn/>}/>
     <Route path="/signup" element={<SignUp/>}/>
-    <Route path="/dashboard" element={<DashBoard/>}/>
+    { <Route path="/dashboard" element={<ProtectedRoute><DashBoard/></ProtectedRoute>}/>} 
   </Routes>
   </BrowserRouter>
   </div>)
