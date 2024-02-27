@@ -51,7 +51,7 @@ export const Header = ()=>{
                   <Link className="nav-link" to="">Add Receptionist <span className="sr-only">(current)</span></Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to=""> Reception List</Link>
+                  <Link className="nav-link" to="/reception-list"> Reception List</Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="">Appointment list</Link>

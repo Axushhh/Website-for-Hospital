@@ -22,14 +22,15 @@ export const SignIn = ()=>{
             console.log(currentUserData);
             // stringify is used to convert an object to string 
             sessionStorage.setItem("current-user",JSON.stringify(currentUserData));
-            sessionStorage.setItem("token",response.data.msg);
+            const ab = sessionStorage.setItem("token",currentUserData.token);
+            console.log("sdf",currentUserData.token)
             navigate("/dashboard");
            }
            else
-           toast.error("invalid error")
+           window.alert("invalid error")
         }
         catch(err){
-            toast.error("oops ! something went wrong ")
+            window.alert("oops ! something went wrong ")
         }
     }
 

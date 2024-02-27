@@ -8,7 +8,7 @@ import { SignIn } from "./components/doctor-signin-signup/SignIn";
 import { SignUp } from "./components/doctor-signin-signup/SignUp";
 import { DashBoard } from "./components/dashboard/DashBoard";
 import { ProtectedRoute } from "./components/auth/ProtectedRoute";
-import { isLoggedIn } from "./components/auth/Auth";
+import { ReceptionList } from "./components/dashboard/ReceptionList";
 
 function App() {
   return (<div>
@@ -21,7 +21,8 @@ function App() {
     <Route path="/contact" element={<Contact/>}/>
     <Route path="/signin" element={<SignIn/>}/>
     <Route path="/signup" element={<SignUp/>}/>
-    { <Route path="/dashboard" element={<ProtectedRoute><DashBoard/></ProtectedRoute>}/>} 
+    <Route path="/dashboard" element={<ProtectedRoute><DashBoard/></ProtectedRoute>}/>
+    <Route path="/reception-list" element={<ProtectedRoute><ReceptionList/></ProtectedRoute>}/>
   </Routes>
   </BrowserRouter>
   </div>)
